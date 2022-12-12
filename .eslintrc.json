@@ -11,6 +11,13 @@
         "plugin:import/recommended",
         "prettier"
     ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    },
     "overrides": [
     ],
     "parser": "@typescript-eslint/parser",
@@ -23,5 +30,6 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "react/react-in-jsx-scope": "off"
     }
 }
