@@ -1,3 +1,11 @@
 .header {
-  background-color: #f54613;
+  background-color: #f54f24;
+  width: 100vw;
+  border: solid 2px #0e2d73;
+}
+.header-el {
+  margin: 5px;
+}
+.header__title {
+  text-align: center;
 }
