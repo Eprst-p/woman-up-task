@@ -1,12 +1,13 @@
 import './tasks-list.less';
 import {createdTasks} from "../mocks/create-tasks";
 import TaskShort from "./task-short";
-import {StatusName} from "../settings/status-names";
+import {useAppSelector} from "../hooks/redux-hooks";
+import {getTasksDone, getTasksFailed, getTasksInProgress} from "../store/selectors";
 
 function TasksList(): JSX.Element {
-    const tasksInProgress = createdTasks.filter(task => task.taskStatus === StatusName.InProgress);
-    const tasksDone = createdTasks.filter(task => task.taskStatus === StatusName.Done);
-    const tasksFailed = createdTasks.filter(task => task.taskStatus === StatusName.Failed);
+    const tasksInProgress = useAppSelector(getTasksInProgress);
+    const tasksDone = useAppSelector(getTasksDone);
+    const tasksFailed = useAppSelector(getTasksFailed);
 
     return (
         <div className="tasks-list">
