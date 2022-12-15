@@ -1,5 +1,4 @@
 import './tasks-list.less';
-import {createdTasks} from "../mocks/create-tasks";
 import TaskShort from "./task-short";
 import {useAppSelector} from "../hooks/redux-hooks";
 import {getTasksDone, getTasksFailed, getTasksInProgress} from "../store/selectors";

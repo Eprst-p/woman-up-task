@@ -1,0 +1,104 @@
+.task-form {
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: solid 2px #0e2d73;
+  border-radius: 10px;
+  background-color: #f1542a;
+}
+.task-form__top-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.task-form__title_label {
+  display: flex;
+  flex-direction: column;
+  font-size: 75%;
+  margin: 5px;
+}
+.task-form__title_field {
+  height: 30px;
+  border: solid 2px #0e2d73;
+  border-radius: 10px;
+  background-color: #e7d17f;
+  font-size: calc(10px + 1vmin);
+  min-width: 500px;
+}
+.task-form__description_label {
+  display: flex;
+  flex-direction: column;
+  font-size: 75%;
+  margin: 5px;
+}
+.task-form__description {
+  background-color: #e7d17f;
+  border: solid 2px #0e2d73;
+  font-size: calc(8px + 1vmin);
+}
+.task-form__upper_buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.task-form__done-btn_label {
+  background-color: #e7d17f;
+  border: solid 2px #0e2d73;
+  border-radius: 10px;
+  font-size: calc(8px + 1vmin);
+  min-width: 100px;
+  height: 25px;
+  padding: 5px;
+  margin-right: 5px;
+}
+.task-form__done-btn {
+  height: 15px;
+  width: 15px;
+}
+.delete-btn {
+  width: 40px;
+  height: 40px;
+  border: solid 2px #0e2d73;
+  border-radius: 10px;
+  font-size: 120%;
+  color: #e30505;
+  background-color: #e7d17f;
+}
+.delete-btn:hover {
+  background-color: gold;
+  font-weight: bold;
+  color: #910101;
+}
+.task-form__bottom_buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.save-btn {
+  margin: 5px;
+  min-width: 120px;
+  min-height: 30px;
+  background-color: rgba(57, 164, 6, 0.97);
+  border-radius: 10px;
+}
+.save-btn:hover {
+  background-color: gold;
+  font-weight: bold;
+}
+.cancel-btn {
+  margin: 5px;
+  min-width: 120px;
+  min-height: 30px;
+  background-color: #e7d17f;
+  border-radius: 10px;
+}
+.cancel-btn:hover {
+  background-color: gold;
+  font-weight: bold;
+}
+.task-form__files {
+  margin: 5px;
+}
+.task-form__files_filename {
+  font-size: calc(8px + 1vmin);
+}

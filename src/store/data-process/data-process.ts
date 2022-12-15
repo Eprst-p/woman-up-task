@@ -5,6 +5,7 @@ import {DataProcess} from '../../types/state';
 const initialState: DataProcess = {
     allTasks: [],
     chosenId: undefined,
+    isFormOpen: false
 };
 
 export const dataProcess = createSlice({
@@ -12,8 +13,9 @@ export const dataProcess = createSlice({
     initialState,
     reducers: {
         loadTasks: (state, {payload}) => {state.allTasks = payload},
-        changeId: (state, {payload}) => {state.chosenId = payload}
+        changeId: (state, {payload}) => {state.chosenId = payload},
+        setFormOpenStatus: (state, {payload}) => {state.isFormOpen = payload},
     },
 });
 
-export const {loadTasks, changeId} = dataProcess.actions;
+export const {loadTasks, changeId, setFormOpenStatus} = dataProcess.actions;

@@ -1,9 +1,9 @@
 import './App.less';
 import Header from "../header/header";
-import TasksList from "../main/tasks-list";
 import {useAppDispatch} from "../hooks/redux-hooks";
 import {loadTasks} from "../store/data-process/data-process";
 import {createdTasks} from "../mocks/create-tasks";
+import Main from "../main/main";
 
 function App() {
     const dispatch = useAppDispatch();
@@ -12,7 +12,7 @@ function App() {
     return (
     <div className="App">
       <Header />
-      <TasksList />
+      <Main />
     </div>
     );
 }
