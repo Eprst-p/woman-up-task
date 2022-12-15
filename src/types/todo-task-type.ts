@@ -6,5 +6,6 @@ export type TodoTaskType = {
     description: string
     endDate: string
     files: string[]
+    isDone: boolean
     taskStatus: StatusName
 }
