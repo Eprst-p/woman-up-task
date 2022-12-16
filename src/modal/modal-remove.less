@@ -1,27 +1,29 @@
 @import '../styles';
 
-.header {
+.modal-remove {
   background-color: @background-color-dark;
-  width: 100vw;
   border: @border;
-}
-
-.header-el {
-  margin: 5px;
-}
-
-.header__title {
-  text-align: center;
-}
-
-.header__deals-block {
+  border-radius: 10px;
+  width: 400px;
+  height: 200px;
   display: flex;
-  justify-content: space-between;
-  margin-left: 20px;
-  margin-right: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.header__add-task-btn {
+.modal-remove__title {
+  font-size: 90%;
+  font-weight: bold;
+}
+
+.modal-remove__buttons {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.remove-btn {
   background-color: @background-color-light;
   border: @border;
   border-radius: 10px;
@@ -32,9 +34,8 @@
   margin-right: 5px;
 }
 
-.header__add-task-btn:hover {
+.remove-btn:hover {
   background-color: @btn-color-on-hover;
   cursor: pointer;
-  font-weight: bold;
 }
 

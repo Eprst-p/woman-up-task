@@ -53,6 +53,7 @@
   margin-right: 5px;
 }
 .task-status-btn:hover {
+  background-color: gold;
   font-weight: bold;
   cursor: pointer;
 }

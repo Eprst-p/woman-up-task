@@ -8,7 +8,6 @@ const createTodoTask = ():TodoTaskType => {
     const title = faker.name.jobTitle();
     const description = faker.lorem.sentences(3);
     const files = [faker.lorem.word(5), faker.lorem.word(5)];
-    const isDone = !!getRandomPositiveNumber(0,1)
     const generateRandomDate = () => {
         const date = new Date();
         date.setFullYear(date.getFullYear()  - 2 + getRandomPositiveNumber(0, 2));
@@ -18,6 +17,7 @@ const createTodoTask = ():TodoTaskType => {
     }
     const date = generateRandomDate();
     const defineStatus = () => {
+        const isDone = !!getRandomPositiveNumber(0,1)
         const currentDate = new Date();
         const taskDate = new Date(date);
         if (isDone) {
@@ -36,7 +36,6 @@ const createTodoTask = ():TodoTaskType => {
         description: description,
         endDate: date.toString(),
         files: files,
-        isDone: isDone,
         taskStatus: status
     })
 }

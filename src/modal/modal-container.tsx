@@ -5,6 +5,7 @@ import {useAppDispatch, useAppSelector} from "../hooks/redux-hooks";
 import {getActiveModal} from "../store/selectors";
 import {useCallback, useEffect} from "react";
 import {changeActiveModal} from "../store/data-process/data-process";
+import ModalRemove from "./modal-remove";
 
 
 function ModalContainer(): JSX.Element {
@@ -14,10 +15,15 @@ function ModalContainer(): JSX.Element {
     const handleOnEscDown = useCallback(({ key }: KeyboardEvent) => {
         switch (key) {
             case 'Escape':
-                dispatch(changeActiveModal(ActiveModal.NoModal));
+                if (activeModal === ActiveModal.TaskForm) {
+                    dispatch(changeActiveModal(ActiveModal.NoModal));
+                }
+                if (activeModal === ActiveModal.RemoveTask) {
+                    dispatch(changeActiveModal(ActiveModal.TaskForm))
+                }
                 break;
         }
-    }, [dispatch]);
+    }, [activeModal, dispatch]);
 
     const handleOnOverlayClick = () => {
         dispatch(changeActiveModal(ActiveModal.NoModal));
@@ -47,6 +53,10 @@ function ModalContainer(): JSX.Element {
                {
                    activeModal === ActiveModal.TaskForm &&
                    <TaskForm />
+               }
+               {
+                   activeModal === ActiveModal.RemoveTask &&
+                   <ModalRemove />
                }
            </div>
        </div>

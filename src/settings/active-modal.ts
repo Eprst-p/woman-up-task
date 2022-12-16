@@ -1,4 +1,5 @@
 export enum ActiveModal {
   NoModal = 'NoModal',
-  TaskForm = 'TaskForm' ,
+  TaskForm = 'TaskForm',
+  RemoveTask = 'RemoveTask',
 }
