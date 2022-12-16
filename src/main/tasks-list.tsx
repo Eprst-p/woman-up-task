@@ -1,9 +1,10 @@
 import './tasks-list.less';
 import TaskShort from "./task-short";
 import {useAppSelector} from "../hooks/redux-hooks";
-import {getTasksDone, getTasksFailed, getTasksInProgress} from "../store/selectors";
+import {getAllTasks, getTasksDone, getTasksFailed, getTasksInProgress} from "../store/selectors";
 
 function TasksList(): JSX.Element {
+    const allTask = useAppSelector(getAllTasks);
     const tasksInProgress = useAppSelector(getTasksInProgress);
     const tasksDone = useAppSelector(getTasksDone);
     const tasksFailed = useAppSelector(getTasksFailed);
@@ -42,6 +43,10 @@ function TasksList(): JSX.Element {
                         )
                     }
                 </div>
+            }
+            {
+                allTask.length === 0 &&
+                <p>Ни одной задачи нет. Добавьте новые задачи</p>
             }
         </div>
     );
