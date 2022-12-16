@@ -4,7 +4,7 @@ import {StatusName} from "../settings/status-names";
 
 export const getAllTasks = (state:State) => state.DATA.allTasks;
 export const getChosenId = (state:State) => state.DATA.chosenId;
-export const getFormOpenStatus = (state:State) => state.DATA.isFormOpen;
+export const getActiveModal = (state:State) => state.DATA.activeModal;
 
 export const getTasksInProgress = createSelector(getAllTasks, (allTasks) => allTasks.filter(task => task.taskStatus === StatusName.InProgress))
 export const getTasksDone = createSelector(getAllTasks, (allTasks) => allTasks.filter(task => task.taskStatus === StatusName.Done))

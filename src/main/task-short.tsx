@@ -4,7 +4,8 @@ import {getDayFromIso, getMonthFromIso, getYearFromIso} from "../settings/getDat
 import {monthNames} from "../settings/months-names";
 import {StatusName} from "../settings/status-names";
 import {useAppDispatch} from "../hooks/redux-hooks";
-import {changeId, setFormOpenStatus} from "../store/data-process/data-process";
+import {changeActiveModal, changeId} from "../store/data-process/data-process";
+import {ActiveModal} from "../settings/active-modal";
 
 type TodoTaskProps = {
     task: TodoTaskType;
@@ -19,7 +20,7 @@ function TaskShort({task}: TodoTaskProps): JSX.Element {
 
     const handlerOnTaskClick = () => {
         dispatch((changeId(id)));
-        dispatch(setFormOpenStatus(true));
+        dispatch(changeActiveModal(ActiveModal.TaskForm));
     }
 
     return (

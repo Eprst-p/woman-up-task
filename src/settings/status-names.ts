@@ -1,5 +1,5 @@
 export enum StatusName {
-    Done = 'Done',
-    Failed = 'Failed',
-    InProgress = 'InProgress',
+    Done = 'Выполнено',
+    Failed = 'Провалено',
+    InProgress = 'В работе',
 }

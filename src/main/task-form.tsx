@@ -3,7 +3,8 @@ import {useAppDispatch, useAppSelector} from "../hooks/redux-hooks";
 import {getTaskById} from "../store/selectors";
 import {getDayFromIso, getMonthFromIso, getYearFromIso} from "../settings/getDateFromIso";
 import {monthNames} from "../settings/months-names";
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {StatusName} from "../settings/status-names";
 
 function TaskForm(): JSX.Element {
     const dispatch = useAppDispatch();
@@ -12,25 +13,39 @@ function TaskForm(): JSX.Element {
     const year = getYearFromIso(endDate);
     const month = monthNames[+getMonthFromIso(endDate)];
     const day = getDayFromIso(endDate);
+    const [currentTaskStatus, setCurrentTaskStatus] = useState(taskStatus);
 
     const handlerFormSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault();
         console.log(task);
     }
 
+    const handlerOnTaskStatusBtnClick = () => {
+        if (currentTaskStatus === StatusName.Done) {
+            setCurrentTaskStatus(StatusName.InProgress)
+        } else {
+            setCurrentTaskStatus(StatusName.Done)
+        }
+    }
+
+    //TODO сделать загрузку файлов
     return (
         <form id="task-form" className="task-form" onSubmit={handlerFormSubmit}>
             <div className="task-form__top-block">
                 <label htmlFor="task-form__title" className="task-form__title_label">
                     <span className="task-form__title_name">Название задачи</span>
-                    <input id="task-form__title" className="task-form__title_field" type="text" defaultValue={title} form="task-form"></input>
+                    <input id="task-form__title" className="task-form__title_field" type="text" defaultValue={title} form="task-form"/>
                 </label>
                 <div className="task-form__upper_buttons">
-                    <label htmlFor="done-btn" className="task-form__done-btn_label">
-                        <span>выполнено</span>
-                        <input id="done-btn" type="checkbox" className="task-form__done-btn" defaultChecked={isDone} ></input>
-                    </label>
-                    <button className="delete-btn" type="button">X</button>
+                    <button
+                        className={`task-status-btn ${currentTaskStatus === StatusName.Done ? 'done' : ''}${currentTaskStatus === StatusName.Failed ? 'failed' : ''}`}
+                        type="button"
+                        disabled={currentTaskStatus === StatusName.Failed}
+                        onClick={handlerOnTaskStatusBtnClick}
+                    >
+                        {currentTaskStatus}
+                    </button>
+                    <button className="delete-btn" type="button">Удалить задачу</button>
                 </div>
             </div>
             <label htmlFor="task-form__description" className="task-form__description_label">
@@ -40,8 +55,12 @@ function TaskForm(): JSX.Element {
             <div className="todo-task__end-date">{`до: ${day} ${month} ${year}г`}</div>
             <div className="task-form__files">
                 {
-                    files.map(fileUrl => <span className="task-form__files_filename" key={fileUrl}>{fileUrl}<br></br></span>)
+                    files.map((fileUrl, index) => <span className="task-form__files_filename" key={index}>{fileUrl}<br></br></span>)
                 }
+                <form className="load-files-form" encType="multipart/form-data" method="post">
+                    <input type="file" name="f" multiple/>
+                    <input type="submit" value="Отправить" />
+                </form>
             </div>
             <div className="task-form__bottom_buttons">
                 <button className="cancel-btn" type="button">Отменить</button>

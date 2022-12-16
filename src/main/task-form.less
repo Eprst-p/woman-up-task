@@ -55,29 +55,44 @@
   justify-content: flex-end;
 }
 
-.task-form__done-btn_label {
+.task-status-btn {
   background-color: @background-color-light;
   border: @border;
   border-radius: 10px;
-  font-size: calc(8px + 1vmin);
-  min-width: 100px;
-  height: 25px;
+  font-size: @btn-font-size;
+  min-width: 150px;
+  height: 30px;
   padding: 5px;
   margin-right: 5px;
 }
 
-.task-form__done-btn {
-  height: 15px;
-  width: 15px;
+.task-status-btn:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.task-status-btn.done {
+  background-color: @task-done-color;
+}
+
+.task-status-btn.done:hover {
+  background-color: @btn-color-on-hover;
+}
+
+.task-status-btn.failed {
+  background-color: @task-failed-color;
+}
+
+.task-status-btn.failed:hover {
+  background-color: @btn-color-on-hover;
 }
 
 .delete-btn {
-  width: 40px;
-  height: 40px;
+  min-width: 150px;
+  height: 30px;
   border: @border;
   border-radius: 10px;
-  font-size: 120%;
-  color: #e30505;
+  font-size: @btn-font-size;
   background-color: @background-color-light;
 }
 
@@ -85,6 +100,7 @@
   background-color: @btn-color-on-hover;
   font-weight: bold;
   color: #910101;
+  cursor: pointer;
 }
 
 //нижние кнопки формы
@@ -104,6 +120,7 @@
 .save-btn:hover {
   background-color: @btn-color-on-hover;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .cancel-btn {
@@ -117,6 +134,7 @@
 .cancel-btn:hover {
   background-color: @btn-color-on-hover;
   font-weight: bold;
+  cursor: pointer;
 }
 
 //файлы

@@ -1,10 +1,11 @@
 import {TodoTaskType} from "./todo-task-type";
 import {store} from "../store";
+import {ActiveModal} from "../settings/active-modal";
 
 export type DataProcess = {
     allTasks: TodoTaskType[];
     chosenId: string | undefined;
-    isFormOpen: boolean;
+    activeModal: ActiveModal;
 };
 
 export type State = ReturnType<typeof store.getState>;

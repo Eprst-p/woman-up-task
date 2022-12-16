@@ -1,17 +1,18 @@
 import './main.less';
 import {useAppSelector} from "../hooks/redux-hooks";
-import {getFormOpenStatus} from "../store/selectors";
-import TaskForm from "./task-form";
+import {getActiveModal} from "../store/selectors";
 import TasksList from "./tasks-list";
+import {ActiveModal} from "../settings/active-modal";
+import ModalContainer from "../modal/modal-container";
 
 function Main() {
-    const isFormOpen = useAppSelector(getFormOpenStatus);
+    const activeModal = useAppSelector(getActiveModal);
 
     return (
         <main className="main">
             {
-                isFormOpen &&
-                <TaskForm />
+                activeModal !== ActiveModal.NoModal &&
+                <ModalContainer />
             }
             <TasksList />
         </main>
